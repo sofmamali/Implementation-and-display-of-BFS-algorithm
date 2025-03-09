@@ -1,0 +1,472 @@
+﻿#####Οδηγίες εγκατάστασης Anaconda (mini) και Virtual Environments (για Python projects)#####
+
+-----Από το http://conda.io/miniconda.html, κατεβάζουμε την έκδοση που ταιριάζει στο λειτουργικό μας
+-----Τρέχουμε το αρχείο εγκατάστασης σαν Διαχειριστής 
+-----Επιλέγουμε ένα φάκελο για την εγκατάστασή του 
+-----Κατόπιν δημιουργούμε ένα εικονικό περιβάλλον (virtual environment) για την έκδοση της Python που συνεργάζεται σωστά με τις βιβλιοθήκες που χρειαζόμαστε
+-----Παράδειγμα : Έκδοση της Python 3.5.0
+-----	1.Ανοίγουμε ένα command prompt (εντολή : cmd). Πηγαίνουμε στο directory : D:\Miniconda3\scripts
+-----	2.Δίνουμε την παρακάτω εντολή για να δούμε τις πληροφορίες εγκατάστασης μας :
+(C:\ProgramData\Anaconda3) C:\Users\pavilion>conda info
+Current conda install:
+
+               platform : win-64
+          conda version : 4.3.30
+       conda is private : False
+      conda-env version : 4.3.30
+    conda-build version : 3.0.27
+         python version : 3.6.3.final.0
+       requests version : 2.18.4
+       root environment : C:\ProgramData\Anaconda3  (writable)
+    default environment : C:\ProgramData\Anaconda3
+       envs directories : C:\ProgramData\Anaconda3\envs
+                          C:\Users\pavilion\AppData\Local\conda\conda\envs
+                          C:\Users\pavilion\.conda\envs
+          package cache : C:\ProgramData\Anaconda3\pkgs
+                          C:\Users\pavilion\AppData\Local\conda\conda\pkgs
+           channel URLs : https://repo.continuum.io/pkgs/main/win-64
+                          https://repo.continuum.io/pkgs/main/noarch
+                          https://repo.continuum.io/pkgs/free/win-64
+                          https://repo.continuum.io/pkgs/free/noarch
+                          https://repo.continuum.io/pkgs/r/win-64
+                          https://repo.continuum.io/pkgs/r/noarch
+                          https://repo.continuum.io/pkgs/pro/win-64
+                          https://repo.continuum.io/pkgs/pro/noarch
+                          https://repo.continuum.io/pkgs/msys2/win-64
+                          https://repo.continuum.io/pkgs/msys2/noarch
+            config file : None
+             netrc file : None
+           offline mode : False
+             user-agent : conda/4.3.30 requests/2.18.4 CPython/3.6.3 Windows/7 Windows/6.1.7601
+          administrator : True
+-----	3.Δίνουμε την παρακάτω εντολή και δημιουργείται περιβάλλον με όνομα python350, στο directory : D:\Miniconda3\envs :
+(C:\ProgramData\Anaconda3) C:\Users\pavilion>conda create -n python350 python=3.5.0
+Fetching package metadata .............
+Solving package specifications: .
+
+Package plan for installation in environment C:\Users\liann\AppData\Local\conda\conda\envs\python350:
+
+The following NEW packages will be INSTALLED:
+
+    certifi:        2017.11.5-py35h456c6ae_0
+    msvc_runtime:   1.0.1-vc14_0
+    pip:            9.0.1-py35h691316f_4
+    python:         3.5.0-4
+    setuptools:     38.4.0-py35_0
+    vc:             14-h2379b0c_2
+    vs2015_runtime: 14.0.25123-hd4c4e62_2
+    wheel:          0.30.0-py35h38a90bc_1
+    wincertstore:   0.2-py35hfebbdb8_0
+
+Proceed ([y]/n)? y
+
+msvc_runtime-1 100% |###############################| Time: 0:00:02 998.49 kB/s
+python-3.5.0-4 100% |###############################| Time: 0:00:25   1.09 MB/s
+certifi-2017.1 100% |###############################| Time: 0:00:00   1.17 MB/s
+wincertstore-0 100% |###############################| Time: 0:00:00   1.21 MB/s
+setuptools-38. 100% |###############################| Time: 0:00:00   1.22 MB/s
+wheel-0.30.0-p 100% |###############################| Time: 0:00:00   1.49 MB/s
+pip-9.0.1-py35 100% |###############################| Time: 0:00:02   1.05 MB/s
+#
+# To activate this environment, use:
+# > activate python350
+#
+# To deactivate an active environment, use:
+# > deactivate
+#
+# * for power-users using bash, you must source
+#
+-----	4.Δίνουμε την παρακάτω εντολή και ενεργοποιούμε το συγκεκριμένο περιβάλλον:
+ (C:\ProgramData\Anaconda3) C:\Users\pavilion>activate python350
+-----Βλέπουμε ότι έχει αλλάξει το prompt προσθήκη του : (python350)
+-----Έτσι γνωρίζουμε σε ποιο περιβάλλον δουλεύουμε 
+-----Αντίστοιχα για να το απενεργοποιήσουμε δίνουμε την εντολή : deactivate
+-----	5.Τώρα μπορούμε να αναζητήσουμε και να εγκαταστήσουμε τις βιβλιοθήκες που χρειαζόμαστε 
+-----Για αυτό το σκοπό εγκαθιστούμε τον anaconda-client, για να ψάξουμε στο Anaconda Cloud για τις βιβλιοθήκες σε περίπτωση που δεν είναι από την αρχή ενσωματωμένες
+
+(python350) C:\Users\pavilion>conda install anaconda-client
+Fetching package metadata .............
+Solving package specifications: .
+
+Package plan for installation in environment C:\Users\liann\AppData\Local\conda\conda\envs\python350:
+
+The following NEW packages will be INSTALLED:
+
+    anaconda-client:  1.6.6-py35h690133a_0
+    asn1crypto:       0.24.0-py35_0
+    ca-certificates:  2017.08.26-h94faf87_0
+    cffi:             1.11.2-py35h74ad5ef_0
+    chardet:          3.0.4-py35h177e1b7_1
+    clyent:           1.2.2-py35h3cd9751_1
+    cryptography:     2.1.4-py35h8ead9e0_0
+    decorator:        4.1.2-py35hc7d1f2e_0
+    idna:             2.6-py35h8dcb9ae_1
+    ipython_genutils: 0.2.0-py35ha709e79_0
+    jsonschema:       2.6.0-py35h27d56d3_0
+    jupyter_core:     4.4.0-py35h629ba7f_0
+    nbformat:         4.4.0-py35h908c9d9_0
+    openssl:          1.0.2n-h74b6da3_0
+    pycparser:        2.18-py35h15a15da_1
+    pyopenssl:        17.5.0-py35h75c5b16_0
+    pysocks:          1.6.7-py35hb30ac0d_1
+    python-dateutil:  2.6.1-py35h6b299a3_1
+    pytz:             2017.3-py35hb294b1a_0
+    pyyaml:           3.12-py35h4bf9689_1
+    requests:         2.18.4-py35h54a615f_1
+    six:              1.11.0-py35hc1da2df_1
+    traitlets:        4.3.2-py35h09b975b_0
+    urllib3:          1.22-py35h8cc84eb_0
+    win_inet_pton:    1.0.1-py35hbef1270_1
+    yaml:             0.1.7-hc54c509_2
+
+Proceed ([y]/n)? y
+
+openssl-1.0.2n 100% |###############################| Time: 0:00:04   1.16 MB/s
+yaml-0.1.7-hc5 100% |###############################| Time: 0:00:00 979.64 kB/s
+asn1crypto-0.2 100% |###############################| Time: 0:00:00 461.36 kB/s
+chardet-3.0.4- 100% |###############################| Time: 0:00:00   1.16 MB/s
+decorator-4.1. 100% |###############################| Time: 0:00:00   7.87 MB/s
+idna-2.6-py35h 100% |###############################| Time: 0:00:00 159.83 kB/s
+ipython_genuti 100% |###############################| Time: 0:00:00   3.30 MB/s
+pycparser-2.18 100% |###############################| Time: 0:00:00 710.69 kB/s
+pytz-2017.3-py 100% |###############################| Time: 0:00:00   1.03 MB/s
+pyyaml-3.12-py 100% |###############################| Time: 0:00:00 924.29 kB/s
+six-1.11.0-py3 100% |###############################| Time: 0:00:00   2.18 MB/s
+win_inet_pton- 100% |###############################| Time: 0:00:00   1.13 MB/s
+cffi-1.11.2-py 100% |###############################| Time: 0:00:00   1.05 MB/s
+pysocks-1.6.7- 100% |###############################| Time: 0:00:00   4.21 MB/s
+python-dateuti 100% |###############################| Time: 0:00:00 944.36 kB/s
+traitlets-4.3. 100% |###############################| Time: 0:00:00   1.31 MB/s
+clyent-1.2.2-p 100% |###############################| Time: 0:00:00   2.60 MB/s
+cryptography-2 100% |###############################| Time: 0:00:00 722.60 kB/s
+jsonschema-2.6 100% |###############################| Time: 0:00:00   1.32 MB/s
+jupyter_core-4 100% |###############################| Time: 0:00:00   1.34 MB/s
+nbformat-4.4.0 100% |###############################| Time: 0:00:00   1.04 MB/s
+pyopenssl-17.5 100% |###############################| Time: 0:00:00   1.36 MB/s
+urllib3-1.22-p 100% |###############################| Time: 0:00:00   1.16 MB/s
+requests-2.18. 100% |###############################| Time: 0:00:00   1.27 MB/s
+anaconda-clien 100% |###############################| Time: 0:00:00 741.64 kB/s
+-----	6.Τώρα μπορούμε να αναζητήσουμε τις βιβλιοθήκες που μας ενδιαφέρουν δηλαδή την NetworkX και την Matplotlib 
+-----Για την NetworkX:
+(python350) C:\Users\pavilion>anaconda search -t conda networkx
+Using Anaconda API: https://api.anaconda.org
+Packages:
+     Name                      |  Version | Package Types   | Platforms       | Builds
+     ------------------------- |   ------ | --------------- | --------------- | ----------
+     ActivisionGameScience/networkx_viewer |    0.2.0 | conda           | linux-64        | py34_0, py35_0, py27_0
+                                          : Interactive viewer for networkx graphs.
+     BjornFJohansson/networkx  |    1.9.1 | conda           | linux-64, win-32, win-64, linux-32, osx-64 | py27_0, py33_0, py26_0, py34_0
+     IzODA/networkx            |     1.11 | conda           | zos-z           | py36_0
+     ODSP-TEST/networkx        |     1.11 | conda           | zos-z           | py36_0
+     Pipeliner/networkx        |      2.0 | conda           | linux-64, osx-64 | py27h0a72f81_0, py27h7358325_0, py27_1
+                                          : Python package for creating and manipulating complex networks
+     RahulJain/networkx        |     1.11 | conda           | win-64          | py27_0
+     Trentonoliphant/networkx  |    1.9.1 | conda           | win-32, win-64  | py34_0, py33_0, py26_0, py27_0
+                                          : http://networkx.github.io/
+     aetrial/networkx          |          | conda           | linux-64, osx-64 | py35_0, py27_0
+     anaconda/networkx         |      2.0 | conda           | linux-ppc64le, osx-32, linux-64, win-32, osx-64, linux-32, win-64 | py35h097edc8_0, py36hff991e3_0, py36hefccab9_0, py36_0, py27hf551
+0e0_0, py35haf1cdd7_0, py36hfb3574a_0, py27h1559fda_0, py27_0, py36he1dbd48_0, py36ha8b2ae0_0, py27h0a72f81_0, py27h7358325_0, py35hcf545bd_0, py35hd138405_0, py26_0, py36h642c725_0, py36hdf4b0f5
+_0, py36h4a3a701_0, py27hfe832d3_0, py27h42253ca_0, py35hb193ae4_0, py27h2503496_0, py35h29b0c50_0, py27hfc23926_0, py36h29b271c_0, py27hb79c5c0_0, py35heef0034_0, py35hd2b46e1_0, py34_0, py27h5e
+f25a2_0, py35hf333c83_0, py33_0, py36h7e96fb8_0, py35hc690e10_0, py35_0
+                                          : Python package for creating and manipulating complex networks
+     bioconda/networkxgmml     |    0.1.6 | conda           | linux-64, osx-64 | py36_1, py34_1, py27_1, py35_1
+                                          : XGMML parser for networkx
+     c3i_test2/networkx        |     1.11 | conda           | linux-64, win-32, win-64, linux-32, osx-64 | py35h097edc8_0, py36h29b271c_0, py27h1559fda_0, py35hd2b46e1_0, py36hdf4b0f5_0, py35hf33
+3c83_0, py27h5ef25a2_0, py36h418c4b6_0, py27he1ca568_0, py27hfe832d3_0, py36he1dbd48_0, py27h0a72f81_0, py35h083b4ad_0, py36ha8b2ae0_0, py35hd138405_0, py27h7358325_0, py36hfb3574a_0, py36h8093b9
+1_0, py35heef0034_0
+                                          : Python package for creating and manipulating complex networks
+     clg_boar/networkx         |     1.11 | conda           | linux-64, win-64 | py27_0
+     conda-forge/networkx      |      2.0 | conda           | linux-64, win-32, osx-64, win-64 | py27_1, py34_0, py36_1, py36_0, py27_0, py35_0, py35_1
+                                          : Python package for creating and manipulating complex networks
+     gusdunn/networkxgmml      |    0.1.6 | conda           | linux-64        | py35_0
+                                          : XGMML parser for networkx
+     intel/networkx            |     1.11 | conda           | linux-64        | py27_intel_0, py35_intel_0, py36_intel_0
+     jaikumarm/networkx        |     1.11 | conda           | linux-64        | py35_0, py27_0
+     mhworth/networkx          |    1.8.1 | conda           | linux-64        | py27_0
+                                          : Python package for creating and manipulating graphs and networks
+     msft-sqlserver-example/networkx |     1.11 | conda           | win-64          | py35_0
+     pdrops/networkx           |    1.8.1 | conda           | linux-64, osx-64 | py27_0
+                                          : Python package for creating and manipulating graphs and networks
+     rpi/networkx              |      2.0 | conda           | linux-armv6l, linux-armv7l, noarch | pyh562e4ea_0, py36_0, py35_0, py27_0
+                                          : Python package for creating and manipulating complex networks
+     ryan/networkx             |    1.9.1 | conda           | linux-64        | py27_0
+     serge-sans-paille/networkx |      2.0 | conda           | linux-64        | py36_0, py27_0
+     test_org_002/networkx     |     1.11 | conda           | []              | py27_0, py36_0, py34_0, py33_0, py35_0, py26_0
+     ukoethe/networkx          |     1.11 | conda           | win-64          | py27_0
+                                          : creating and manipulating graphs and networks
+Found 24 packages
+
+Run 'anaconda show <USER/PACKAGE>' to get installation details
+-----Βλέπουμε ότι υπάρχουν πολλές εκδόσεις ανάλογα το λειτουργικό σύστημα και την έκδοση της Python. Επειδή έχουμε στήσει περιβάλλον με Python 3.5.0 και έχουμε windows-64 λειτουργικό μας ταιριάζει η έκδοση :
+-----anaconda/networkx         |      2.0 | conda           | linux-ppc64le, osx-32, linux-64, win-32, osx-64, linux-32, win-64 | py35h097edc8_0, py36hff991e3_0, py36hefccab9_0, py36_0, py27hf551
+-----Επομένως δίνουμε την παρακάτω εντολή για να πάρουμε πληροφορίες εγκατάστασης:
+(python350) C:\Users\pavilion>anaconda show anaconda/networkx
+Using Anaconda API: https://api.anaconda.org
+Name:    networkx
+Summary: Python package for creating and manipulating complex networks
+Access:  public
+Package Types:  conda
+Versions:
+   + 1.8.1
+   + 1.8
+   + 1.9
+   + 1.9.1
+   + 1.7
+   + 1.10
+   + 1.11
+   + 2.0
+
+To install this package with conda run:
+     conda install --channel https://conda.anaconda.org/anaconda networkx
+-----Διαβάζουμε την εντολή που μας προτείνει και την πληκτρολογούμε:
+(python350) C:\Users\pavilion>conda install --channel http://conda.anaconda.org/anaconda networkx
+Fetching package metadata ...............
+Solving package specifications: .
+
+Package plan for installation in environment C:\ProgramData\Anaconda3\envs\python350:
+
+The following NEW packages will be INSTALLED:
+
+    networkx:     2.0-py36hff991e3_0    anaconda
+
+The following packages will be SUPERSEDED by a higher-priority channel:
+
+    cryptography: 2.1.4-py36he1d7878_0           --> 2.0.3-py36h123decb_1  anaconda
+    msvc_runtime: 1.0.1-vc14_0                   --> 1.0.1-vc14_0          anaconda [vc14]
+    openssl:      1.0.2n-h74b6da3_0              --> 1.0.2l-vc14hf4c37d5_5 anaconda [vc14]
+    pyopenssl:    17.5.0-py36h5b7d817_0          --> 17.4.0-py36h3316aad_0 anaconda
+    yaml:         0.1.7-hc54c509_2               --> 0.1.7-vc14hb31d195_1  anaconda [vc14]
+
+Proceed ([y]/n)? y
+
+msvc_runtime-1 100% |###############################| Time: 0:00:02   1.02 MB/s
+openssl-1.0.2l 100% |###############################| Time: 0:00:03   1.48 MB/s
+yaml-0.1.7-vc1 100% |###############################| Time: 0:00:00   1.74 MB/s
+networkx-2.0-p 100% |###############################| Time: 0:00:01   1.38 MB/s
+cryptography-2 100% |###############################| Time: 0:00:00   1.67 MB/s
+pyopenssl-17.4 100% |###############################| Time: 0:00:00   1.57 MB/s
+-----Τώρα έχει εγκατασταθεί η βιβλιοθήκη και μπορούμε να την χρησιμοποιήσουμε 
+-----	7.Όμοια και για την Matplotlib:
+(python350) C:\Users\pavilion>anaconda search -t conda matplotlib
+Using Anaconda API: https://api.anaconda.org
+Packages:
+     Name                      |  Version | Package Types   | Platforms       | Builds
+     ------------------------- |   ------ | --------------- | --------------- | ----------
+     Alges/matplotlib          |    2.0.0 | conda           | linux-64, win-64 | np111py27_2, np112py27_2
+                                          : Publication quality figures in Python
+     BioBuilds/matplotlib      |    1.5.3 | conda           | linux-ppc64le, linux-64, osx-64 | py27h41f7eef_3, np111py27_1, np111py27_0, py27hbade11c_3, np19py27_2, py27h977680b_3, np112py27_2,
+np110py27_0
+                                          : Python 2D plotting library
+     CEFCA/matplotlib          |    1.5.3 | conda           | linux-64, linux-32, osx-64 | np111py27_3, np18py27_3, np19py27_3, np110py27_3
+                                          : Publication quality figures in Python
+     Esri/matplotlib           |    2.0.2 | conda           | win-64          | np113py36_0e, np111py35_0e, np19py34_2, np19py34_1, np19py34_0
+     IzODA/matplotlib          |    2.0.0 | conda           | zos-z           | np112py36_2, np112py36_0, np112py36_1
+     ODSP-TEST/matplotlib      |    2.0.0 | conda           | zos-z           | np112py36_arch10_3, np112py36_2, np112py36_3, np112py36_0, np112py36_1, np112py36_arch7_3, np112py36_arch11_3
+     PeterParker/matplotlib    |    1.1.1 | conda           | win-32          | py27
+     Pipeliner/matplotlib      |    2.0.2 | conda           | linux-64, osx-64 | py27h2e09848_1, np19py27_2, np113py27_0
+                                          : Python 2D plotting library
+     RaspberryPi/matplotlib    |    1.4.2 | conda           | linux-armv6l    | np17py27_0, np18py27_2, np18py27_3, np18py27_0, np18py27_1, np18py34_3, np18py34_1
+     Waelthus/matplotlib       |    1.5.0 | conda           | linux-64        | py27_0
+                                          : Python plotting package
+     WeiLi/matplotlib          |    1.4.3 | conda           | linux-64        | py27_0
+                                          : Python plotting package
+     aarch64_gbox/matplotlib   |    2.0.0 | conda           | linux-aarch64   | np112py36_0
+     aetrial/matplotlib        |          | conda           | linux-64, osx-64 | np110py27_0, np110py35_0
+     amitsaha/matplotlib-venn  |   0.11.1 | conda           | linux-64, osx-64, win-64 | py35_0
+                                          : Functions for plotting area-proportional two- and three-way Venn diagrams in matplotlib.
+     anaconda/matplotlib       |    2.1.1 | conda           | linux-ppc64le, linux-64, win-32, osx-64, linux-32, win-64 | np16py27_0, np16py27_1, np16py27_2, py36he33e573_0, py27h7196adb_0, py35h
+478b113_0, py27h3078195_0, py35h055e8d8_1, np113py36_0, py36h2fb3e9e_0, py27hf851d45_1, np110py35_3, np110py35_2, py36h8c0e3ee_0, np110py35_0, py27h3be7b3c_0, np17py27_1, np17py27_0, np17py27_2,
+py36h5068139_0, np18py26_1, np16py26_1, np16py26_0, np16py26_2, py35ha26af80_0, np110py27_2, np110py27_3, np110py27_0, np110py27_1, py27h088567d_0, py35ha43f773_1, py36h58ba717_1, np111py27_1, np
+111py27_0, py35h70fdcd8_1, np19py34_3, np19py34_2, np19py34_1, np19py34_0, py35hdbc49ba_1, np112py27_0, py36hcac705d_1, np110py34_2, py36h507e440_1, np110py34_0, np110py34_1, np111py34_1, np111py
+34_0, py27hd2e917d_1, np111py36_1, np111py36_0, np17py26_0, np113py27_0, np17py26_2, np15py27_2, np15py27_1, np15py27_0, py27h2e09848_1, py36h526d10b_1, np19py26_2, np19py26_3, np19py26_0, np19py
+26_1, py36h11b4b9c_0, py36ha26af80_0, py35hc2166d4_0, np113py35_0, np110py34_3, py35h0bf4214_0, py35h9bd10b2_1, np19py33_0, np19py33_1, np19py33_2, np19py27_2, np18py34_2, np19py35_3, np18py34_0,
+ np18py34_1, py36hba5de38_0, py27h86412ea_0, py36h2acb4ad_1, np111py35_0, np111py35_1, py36hc88a8cc_0, np18py26_2, np112py36_0, np18py26_0, np17py33_0, np17py33_1, py27hb768455_0, py35h8c0e3ee_0,
+ np15py26_2, np15py26_0, np15py26_1, np19py27_3, np112py35_0, np19py27_1, np19py27_0, py27h91e5352_0, py35h2fb3e9e_0, py35hea29350_0, np17py26_1, np18py33_1, np18py33_0, np18py33_2, py36h2062329_
+0, py27h09aba24_0, py27h0128e01_0, np19py33_3, py27h334a7c2_1, py27he133664_1, np18py27_2, np18py27_0, np18py27_1, py35h2062329_0, np19py35_2, py35h2cbf27e_0
+                                          : Publication quality figures in Python
+     anaconda/matplotlib-tests |    1.5.1 | conda           | linux-64, win-32, noarch, osx-64, linux-32, win-64 | py_0, py34_0, py35_0, py27_0
+     andreas-wilm/matplotlib-venn |   0.11.1 | conda           | linux-64        | nppy27_0
+                                          : Functions for plotting area-proportional two- and three-way Venn diagrams in matplotlib.
+     astropy-ci-extras/matplotlib |    1.4.3 | conda           | linux-64        | np16py27_0, np18py27_0, np18py32_0, np17py27_0
+                                          : Python plotting package
+     awkwong/matplotlib        |    2.0.2 | conda           | linux-64        | np112py27_0
+                                          : Publication quality figures in Python
+     bioconda-legacy/matplotlib-venn |   0.11.1 | conda           | linux-64, osx-64 | py27_0, py35_0, py34_0
+                                          : Functions for plotting area-proportional two- and three-way Venn diagrams in matplotlib.
+     bokeh/matplotlib          |    1.5.3 | conda           | linux-64        | np111py36_5
+     brown-data-science/matplotlib |    2.0.2 | conda           | linux-64        | py27h9b628dc_0
+     bstellato/matplotlib2tikz |    0.6.6 | conda           | osx-64          | py36_0, py35_0
+     c3i_test2/matplotlib      |    2.0.2 | conda           | linux-64, win-32, win-64, linux-32, osx-64 | py27h65617ef_1, py27h2e09848_1, py36h2acb4ad_1, py35h160922a_1, py36h3bf41bc_1, py35ha43
+f773_1, py36h58ba717_1, py27h1873232_1, py35h70fdcd8_1, py35h9bd10b2_1, py35hdbc49ba_1, py27hf851d45_1, py36hcac705d_1, py35h055e8d8_1, py36h507e440_1, py27h334a7c2_1, py27he133664_1, py35h149709
+0_1, py27hd2e917d_1, py36h526d10b_1, py36ha5c4818_1, py36hee9eecc_1
+                                          : Publication quality figures in Python
+     cgat/matplotlib-venn      |      0.1 | conda           | linux-64        | py27_0
+     christofsteel/matplotlib-minimal |    1.5.3 | conda           | linux-64        | py35_0
+     christophaburke/matplotlib |    1.3.1 | conda           | linux-64        | np18py27_0
+                                          : Python plotting package
+     clg_boar/matplotlib       |    1.5.1 | conda           | linux-64, win-64 | np111py27_0, np110py27_0
+     clinicalgraphics/matplotlib |    1.5.3 | conda           | linux-64, win-32, win-64, osx-64 | np111py27_2, np111py27_1, np111py27_0, np111py34_1, np110py35_2, np110py35_1, np110py35_0, np111
+py35_2, np110py27_2, np111py34_0, np111py35_0, np111py35_1, np110py27_0, np111py34_2, np110py27_1, np110py34_2, np110py34_0, np110py34_1
+     cmckeague/matplotlib      |    1.5.1 | conda           | linux-armv7l    | py27_0
+                                          : Python plotting package
+     compass/matplotlib        |    1.5.1 | conda           | linux-armv7l    | py27_0, nppy27_0
+     conda-forge/matplotlib    |    2.1.1 | conda           | linux-64, win-32, osx-64, win-64 | np19py35_0, np113py36_8, np113py36_0, np110py35_6, np110py35_5, np110py35_4, np110py35_3, np110py3
+5_2, np110py35_1, np110py35_0, py36_1, py36_0, py36_2, np110py27_6, np110py27_4, np110py27_5, np110py27_2, np110py27_3, np110py27_0, np110py27_1, np111py27_3, np111py27_2, np111py27_1, np111py27_
+0, np111py27_7, np111py27_6, np111py27_5, np111py27_4, np111py27_8, np19py34_0, np112py27_8, np112py35_2, np112py27_0, np112py27_1, np112py27_2, np112py27_3, np110py34_2, np110py34_3, np110py34_0
+, np112py27_7, np111py34_6, np111py34_5, np111py34_4, np111py34_3, np111py34_2, np111py34_1, np111py34_0, np110py36_0, np110py36_1, np110py36_5, np111py36_1, np111py36_0, np111py36_3, np111py36_2
+, np111py36_5, np113py27_0, np111py36_7, np111py36_8, np113py27_8, np110py34_6, np110py34_4, np110py34_5, np113py35_8, np113py35_0, np110py34_1, np111py35_8, np111py35_6, np111py35_7, np111py35_4
+, np111py35_5, np111py35_2, np111py35_3, np111py35_0, np111py35_1, np112py36_8, np112py36_2, np112py36_3, np112py36_0, np112py36_1, np112py36_7, py35_2, py35_0, py35_1, np112py35_8, np112py35_7,
+np112py35_1, np112py35_0, np112py35_3, np19py27_0, py27_2, py27_1, py27_0, py34_2
+                                          : Publication quality figures in Python
+     conda-forge/matplotlib-venn |   0.11.5 | conda           | linux-64, win-32, win-64, osx-64 | py36_0, py27_0, py35_0, py34_0
+                                          : Functions for plotting area-proportional two- and three-way Venn diagrams in matplotlib.
+     danielballan/matplotlib   | 1.5.0.pre1 | conda           | osx-64          | np19py34_0
+     dunnlab/matplotlib        |    2.0.0 | conda           | linux-64        | np111py27_0
+     edurand/matplotlib-venn   |   0.11.4 | conda           | linux-64        | py27_0
+     ericdill/matplotlib       | 1.5.1.post61 | conda           | linux-64        | 61_g513da02_py35, 3338_g513da02_py35
+                                          : Publication quality figures in Python
+     ilastik/matplotlib        |    2.0.0 | conda           | linux-64, osx-64 | 4_ilastik
+     immerrr/matplotlib        |    1.4.0 | conda           | linux-64        | np18py27_1
+                                          : matplotlib: plotting with Python
+     intel/matplotlib          |    2.0.2 | conda           | linux-64, osx-64, win-64 | intel_py35_2, np113py27_intel_1, intel_py27_2, intel_py2.7_1, np113py36_intel_1, py27_intel_0, py27_intel_
+1, py27_intel_2, py27_intel_3, py27_intel_4, py35_intel_1, py35_intel_0, py35_intel_3, py35_intel_2, intel_py3.5_2, py35_intel_4, intel_py3.5_1
+     iponweb/matplotlib        |    1.4.0 | conda           | linux-64        | np18py27_1, py27_1
+     jacknight/matplotlib      |    1.5.1 | conda           | win-64          | np111py35_0
+     jeanconn/matplotlib       |          | conda           | linux-64        | np18py27_3
+     jetson-tx2/matplotlib     |    2.0.2 | conda           | linux-aarch64   | np112py36_0
+     jrderuiter/matplotlib-venn |     0.10 | conda           | linux-64        | np19py27_0, np19py34_0
+                                          : Functions for plotting area-proportional two- and three-way Venn diagrams in matplotlib.
+     kimppis/matplotlib        |    1.5.1 | conda           | linux-armv7l    | py27_0
+                                          : Python plotting package
+     krrishnarraj/matplotlib   |    2.0.1 | conda           | linux-armv7l    | py34_0, py27_0
+     liulab/matplotlib-venn    |     0.11 | conda           | linux-64        | np19py34_0
+                                          : Functions for plotting area-proportional two- and three-way Venn diagrams in matplotlib.
+     maxalbert/matplotlib      | 1.5.1.post960+g628427a | conda           | linux-64        | py34_1, py27_1, py27_0
+     montilab/matplotlib       |    1.4.3 | conda           | linux-64        | np110py27_2
+     msarahan/matplotlib-tests |    1.5.1 | conda           | osx-64, noarch  | py_0, py27_0
+     msft-sqlserver-example/matplotlib |    2.0.0 | conda           | win-64          | np112py35_0
+     mutirri/matplotlib        |    1.3.1 | conda           | linux-64        | np18py27_1
+     nehaljwani/matplotlib     |    2.0.2 | conda           | linux-ppc64le   | np113py36_0, np113py35_0, np113py27_0
+                                          : Python 2D plotting library
+     omgarcia/matplotlib       |    1.5.1 | conda           | linux-64        | np110py27_0
+     ostrokach/matplotlib-venn |     0.11 | conda           | linux-64        | np19py34_0
+                                          : Functions for plotting area-proportional two- and three-way Venn diagrams in matplotlib.
+     poppy-project/matplotlib  |    1.5.0 | conda           | linux-armv7l    | nppy27_0
+     quanyuan/matplotlib-venn  |   0.11.4 | conda           | osx-64          | py27_0
+                                          : Functions for plotting area-proportional two- and three-way Venn diagrams in matplotlib.
+     reeder/matplotlib         |    1.4.3 | conda           | linux-64        | np110py27_2
+     rgrout/matplotlib         |    1.4.3 | conda           | linux-64, osx-64 | np18py27_2, np18py34_2
+     rogerramos/matplotlib     |    2.0.0 | conda           | linux-64        | np111py27_3, np111py27_0
+                                          : Python plotting package
+     rpi/matplotlib            |    2.1.1 | conda           | linux-armv6l, linux-armv7l | py36h3265117_0, py36h554e170_0, np111py27_0, py35hda4f88c_0, py35he48cafc_0, py27hb3a0d51_0, py27he9c197
+9_0, np112py36_0, py35h5983c63_0, np113py35_0, np112py35_0, py27hbe1ba83_0, np111py36_0, np113py27_0, py36h1c3554f_0, np112py27_0, py36h5af8cd7_0, np113py36_0, py27h33f64be_0, np111py35_0, py35h7
+03b156_0
+                                          : Publication quality figures in Python
+     ryan/matplotlib           |    1.4.3 | conda           | linux-64        | np19py27_0
+     salford_systems/matplotlib-nogui |    1.5.1 | conda           | linux-64, linux-32, osx-64 | py27_1, py27_0, nppy34_1, nppy27_1, py35_0, py35_1
+                                          : matplotlib package without any GUI dependencies (no Tk, no Qt, no GTK).
+https://github.com/salford-systems/conda-recipes
+
+     scw/matplotlib            |    1.5.1 | conda           | win-64          | np111py35_0e, py35_0
+     ska/ska.matplotlib        |     0.11 | conda           | linux-64, osx-64 | np18py27_0
+                                          : kadi events and command archive
+     tacaswell/matplotlib      |    2.1.1 | conda           | linux-64        | py36_1
+     tanghaibao/matplotlib     |    1.4.0 | conda           | linux-64        | py27_0
+                                          : Python plotting package
+     taugspurger/matplotlib    | 1.5.0rc1 | conda           | osx-64          | nppy34_0
+     test_org_002/matplotlib   |    2.0.0 | conda           | []              | np16py26_1, np15py27_2, np15py27_1, np15py27_0, np16py26_0, np16py27_0, np16py27_1, np15py26_0, np15py26_1, np19py2
+7_2, np19py27_1, np19py27_0, np16py26_2, np19py26_2, np19py26_0, np19py26_1, np110py27_2, np110py27_0, np18py27_0, np15py26_2, np19py34_2, np18py27_1, np111py35_0, np16py27_2, np111py34_0, np111p
+y27_1, np111py27_0, np18py33_1, np18py33_0, np19py33_0, np19py33_1, np19py33_2, np19py34_0, np19py35_2, np19py34_1, np18py34_0, np18py34_1, np110py34_2, np110py34_0, np111py35_1, np110py35_2, np1
+11py34_1, np110py35_0, np18py26_1, np18py26_0, np17py27_1, np17py27_0, np17py27_2, np111py36_1, np111py36_0, np17py33_0, np17py33_1, np17py26_0, np17py26_1, np17py26_2
+     test_org_002/matplotlib-tests |    1.5.0 | conda           | []              | py34_0, py35_0, py27_0
+     test_org_003/matplotlib-tests |    1.5.1 | conda           | []              | py_0
+     timl/matplotlib           |    1.5.3 | conda           | win-32          | np111py36_1, np111py27_1
+                                          : Python 2D plotting library
+     ukoethe/matplotlib        | 1.4.3.vc11 | conda           | win-64          | vc11, np17py27_0, py27_0
+                                          : Python plotting package
+     uvcdat/matplotlib         |          | conda           | linux-64        | py27_0
+     wheeler-microfluidics/matplotlib |    2.0.2 | conda           | win-32          | np111py27_gtk2_3, np111py27_2, np111py27_1, np111py27_5, np111py27_4
+     wheeler-microfluidics/matplotlib-helpers | 0.1.post6 | conda           | win-32          | 0
+     wwarner/matplotlibsampledata |    2.0.0 | conda           | osx-64          | 0
+     ziddey/matplotlib         |    1.5.1 | conda           | linux-armv7l    | py34_0
+                                          : Python plotting package
+Found 79 packages
+
+Run 'anaconda show <USER/PACKAGE>' to get installation details
+
+(python350) C:\Users\pavilion>anaconda show anaconda/matplotlib
+Using Anaconda API: https://api.anaconda.org
+Name:    matplotlib
+Summary: Publication quality figures in Python
+Access:  public
+Package Types:  conda
+Versions:
+   + 1.4.3
+   + 1.2.1
+   + 1.3.0
+   + 1.4.0
+   + 1.3.1
+   + 1.4.1
+   + 1.4.2
+   + 1.2.0
+   + 1.1.1
+   + 1.5.0
+   + 1.5.1
+   + 1.5.3
+   + 2.0.0
+   + 2.0.1
+   + 2.0.2
+   + 2.1.0
+   + 2.1.1
+
+To install this package with conda run:
+     conda install --channel https://conda.anaconda.org/anaconda matplotlib
+
+(python350) C:\Users\pavilion>conda install --channel http://conda.anaconda.org/anaconda matplotlib
+Fetching package metadata ...............
+Solving package specifications: .
+
+Package plan for installation in environment C:\ProgramData\Anaconda3\envs\python350:
+
+The following NEW packages will be INSTALLED:
+
+    cycler:       0.10.0-py36h009560c_0 anaconda
+    freetype:     2.8-vc14h17c9bdf_0    anaconda [vc14]
+    icc_rt:       2017.0.4-h97af966_0   anaconda
+    icu:          58.2-vc14hc45fdbb_0   anaconda [vc14]
+    intel-openmp: 2018.0.0-hd92c6cd_8   anaconda
+    jpeg:         9b-vc14h4d7706e_1     anaconda [vc14]
+    libpng:       1.6.32-vc14h5163883_3 anaconda [vc14]
+    matplotlib:   2.1.1-py36h2062329_0  anaconda
+    mkl:          2018.0.1-h2108138_4   anaconda
+    numpy:        1.14.0-py36h4a99626_0 anaconda
+    pyparsing:    2.2.0-py36h785a196_1  anaconda
+    pyqt:         5.6.0-py36hb5ed885_5  anaconda
+    qt:           5.6.2-vc14h6f8c307_12 anaconda [vc14]
+    sip:          4.18.1-py36h9c25514_2 anaconda
+    sqlite:       3.20.1-vc14h7ce8c62_1 anaconda [vc14]
+    tornado:      4.5.3-py36_0          anaconda
+    zlib:         1.2.11-vc14h1cdd9ab_1 anaconda [vc14]
+
+Proceed ([y]/n)? y
+
+icc_rt-2017.0. 100% |###############################| Time: 0:00:06   1.29 MB/s
+intel-openmp-2 100% |###############################| Time: 0:00:02 675.52 kB/s
+mkl-2018.0.1-h 100% |###############################| Time: 0:01:42   1.59 MB/s
+icu-58.2-vc14h 100% |###############################| Time: 0:00:15   1.53 MB/s
+jpeg-9b-vc14h4 100% |###############################| Time: 0:00:00 968.27 kB/s
+sqlite-3.20.1- 100% |###############################| Time: 0:00:00   1.04 MB/s
+zlib-1.2.11-vc 100% |###############################| Time: 0:00:00 739.17 kB/s
+libpng-1.6.32- 100% |###############################| Time: 0:00:01   1.02 MB/s
+numpy-1.14.0-p 100% |###############################| Time: 0:00:03   1.44 MB/s
+pyparsing-2.2. 100% |###############################| Time: 0:00:00   1.61 MB/s
+sip-4.18.1-py3 100% |###############################| Time: 0:00:00   1.00 MB/s
+tornado-4.5.3- 100% |###############################| Time: 0:00:00   1.16 MB/s
+cycler-0.10.0- 100% |###############################| Time: 0:00:00   1.37 MB/s
+freetype-2.8-v 100% |###############################| Time: 0:00:00 939.25 kB/s
+qt-5.6.2-vc14h 100% |###############################| Time: 0:00:38   1.51 MB/s
+pyqt-5.6.0-py3 100% |###############################| Time: 0:00:03   1.19 MB/s
+matplotlib-2.1 100% |###############################| Time: 0:00:04   1.45 MB/s
+
+(python350) C:\Users\pavilion>...
+----------Τέλος!!---------
